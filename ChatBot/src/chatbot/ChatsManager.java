@@ -42,13 +42,13 @@ public class ChatsManager {
         File chatFile = new File(this.chatsFile + File.separator + chat.getTitle().replaceAll(" CHAT ", "|") + ".chat");
 
         try (BufferedWriter output = new BufferedWriter(new FileWriter(chatFile))) {
-            output.write(chat.getTitle() );
-            output.write(String.valueOf(chat.getMessages().size()) );
+            output.write(chat.getTitle());
+            output.write(String.valueOf(chat.getMessages().size()));
 
             for (OllamaMessage message : chat.getMessages()) {
-                output.write("start@" + message.getRole() );
-                output.write(message.getContent() );
-                output.write("end@" + message.getRole() );
+                output.write("start@" + message.getRole());
+                output.write(message.getContent());
+                output.write("end@" + message.getRole());
             }
         }
     }
@@ -85,9 +85,10 @@ public class ChatsManager {
         }
         return chat;
     }
+
     public ArrayList<String> getChats() {
         File directory = new File(this.chatsFile);
-        
+
         var chatsList = new ArrayList<String>();
 
         if (directory.exists() && directory.isDirectory()) {
