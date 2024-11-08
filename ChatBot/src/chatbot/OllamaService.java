@@ -13,6 +13,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 public class OllamaService {
@@ -20,7 +21,7 @@ public class OllamaService {
     private final String RAW_OLLAMA_API_CHAT_URL = "http://localhost:11434/api/chat";
     private final URL ollamaUrl;
     private final OlamaListener listener;
-
+    public static boolean NoOllamaExcept;
     
     public interface OlamaListener {
         void onMessageStarted();
@@ -41,6 +42,10 @@ public class OllamaService {
         try (OutputStream os = connection.getOutputStream()) {
             byte[] input = payload.getBytes("utf-8");
             os.write(input, 0, input.length);
+        }catch(Exception $e){
+            JOptionPane.showMessageDialog(null, "Libreria Ollama no conectada", "Error", JOptionPane.INFORMATION_MESSAGE);
+            NoOllamaExcept = false;
+            ChatApp.messageInputField.setText("");
         }
 
         InputStream inputStream = connection.getInputStream();

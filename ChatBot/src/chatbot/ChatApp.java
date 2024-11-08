@@ -18,7 +18,7 @@ public class ChatApp extends JFrame implements OllamaService.OlamaListener {
     private final ChatsManager chatsManager;
     private final JPanel chatContentPanel;
     private final JScrollPane scrollPane;
-    private final JTextField messageInputField;
+    public static JTextField messageInputField;
     private ChatManager currentChat;
     private static final int MAX_HISTORIAL = 10; 
     private static String[] historial = new String[MAX_HISTORIAL];
@@ -209,8 +209,8 @@ public class ChatApp extends JFrame implements OllamaService.OlamaListener {
         } else {
             System.arraycopy(historial, 1, historial, 0, MAX_HISTORIAL - 1);
             historial[MAX_HISTORIAL - 1] = message;
-        }
             }
+        }
 
         chatContentPanel.add(new MessagePanel(message, sender));
 
@@ -247,57 +247,8 @@ public class ChatApp extends JFrame implements OllamaService.OlamaListener {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
     
     
     class MessagePanel extends JPanel {
@@ -306,21 +257,22 @@ public class ChatApp extends JFrame implements OllamaService.OlamaListener {
             setLayout(new BorderLayout());
             setBorder(new EmptyBorder(10, 10, 10, 10));
             setMaximumSize(new Dimension(1000, Integer.MAX_VALUE));  
-
             
-            JLabel messageLabel = new JLabel("<html><p style='width: 500px;'>" + message + "</p></html>"); 
-            messageLabel.setOpaque(true);
-            messageLabel.setBorder(new EmptyBorder(10, 10, 10, 10));
-            if ("user".equals(sender)) {
-                messageLabel.setBackground(new Color(173, 216, 230)); 
-                messageLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-                setLayout(new FlowLayout(FlowLayout.RIGHT)); 
-            } else {
-                messageLabel.setBackground(new Color(240, 240, 240)); 
-                messageLabel.setHorizontalAlignment(SwingConstants.LEFT);
-                setLayout(new FlowLayout(FlowLayout.LEFT)); 
+            if(OllamaService.NoOllamaExcept){
+                JLabel messageLabel = new JLabel("<html><p style='width: 500px;'>" + message + "</p></html>"); 
+                messageLabel.setOpaque(true);
+                messageLabel.setBorder(new EmptyBorder(10, 10, 10, 10));
+                if ("user".equals(sender)) {
+                    messageLabel.setBackground(new Color(173, 216, 230)); 
+                    messageLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+                    setLayout(new FlowLayout(FlowLayout.RIGHT)); 
+                } else {
+                    messageLabel.setBackground(new Color(240, 240, 240)); 
+                    messageLabel.setHorizontalAlignment(SwingConstants.LEFT);
+                    setLayout(new FlowLayout(FlowLayout.LEFT)); 
+                }
+                add(messageLabel, BorderLayout.CENTER);
             }
-            add(messageLabel, BorderLayout.CENTER);
         }
     }
 
