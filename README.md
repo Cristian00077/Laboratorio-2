@@ -39,4 +39,3 @@ En el código hay funciones distintas para preguntar, procesar y mostrar la resp
 - Crear una nueva rama
 - Realizar los cambios
 - Enviar el pull request
-
