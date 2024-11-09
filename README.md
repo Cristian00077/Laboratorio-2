@@ -14,7 +14,7 @@ Distintas funciones como:
 
 - **Nuevo chat:** Guarda el titulo de la conversación actual en el historial y la elimina del TextArea.
 
-- **Historial:** Permite visualizar las conversaciones anteriores guardadas cada vez que se iniciaba un nuevo chat.
+- **Historial:** Permite visualizar una lista de las conversaciones anteriores cada vez que se iniciaba un nuevo chat.
 
 ## API de Ollama
 Es el enlace entre el usuario y la IA. Obtiene el mensaje del usuario, lo envía a IA y, cuando esta responde, realiza el proceso nuevamente en sentido contrario para que el usuario obtenga la respuesta final. 
