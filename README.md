@@ -22,12 +22,12 @@ Esta conexión se da realizando solicitudes por medio de la librería java.net.H
 
 ## Estructuración
 En el código hay funciones distintas para preguntar, procesar y mostrar la respuesta y el historial. En el botón enviar hay un ciclo try-catch, en el cual la función de error se da si el código no es capaz de conectarse con la API de Ollama.
-<p>
-<p>
+
 
 # ¿Cómo contrbuir al código?
 
 ## Instalar
+
 - Primero, accede al siguiente link
 	https://github.com/Cristian00077/Laboratorio-2.git
 
@@ -39,4 +39,3 @@ En el código hay funciones distintas para preguntar, procesar y mostrar la resp
 - Crear una nueva rama
 - Realizar los cambios
 - Enviar el pull request
-
