@@ -12,7 +12,7 @@ El usuario ingresa el mensaje preguntando algo que quiere que la IA (inteligenci
 Distintas funciones como:
 - **Enviar:** Ingresa el mensaje al textArea y a la API.
 
-- **Nuevo chat:** Guarda la conversación actual en el historial y la elimina del TextArea.
+- **Nuevo chat:** Guarda el titulo de la conversación actual en el historial y la elimina del TextArea.
 
 - **Historial:** Permite visualizar las conversaciones anteriores guardadas cada vez que se iniciaba un nuevo chat.
 
