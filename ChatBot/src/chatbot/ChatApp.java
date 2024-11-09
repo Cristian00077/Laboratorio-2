@@ -51,6 +51,7 @@ public class ChatApp extends JFrame implements OllamaService.OlamaListener {
         newChatButton.setMinimumSize(new Dimension(SIDEBAR_WIDTH, 40));
         newChatButton.setMaximumSize(new Dimension(SIDEBAR_WIDTH, 40));
         newChatButton.setAlignmentX(Component.LEFT_ALIGNMENT);
+        historyButton.addActionListener(e -> LimpiarChat());
 
         sidebar.add(newChatButton);
         sidebar.add(new JSeparator());
@@ -223,12 +224,12 @@ public class ChatApp extends JFrame implements OllamaService.OlamaListener {
        
         scrollPane.getVerticalScrollBar().setValue(scrollPane.getVerticalScrollBar().getMaximum());
     }
-        private static void mostrarHistorial() {
-            System.out.println("\n--- Historial de la conversación ---");
-            for (int i = 0; i < indiceHistorial; i++) {
-                System.out.println(historial[i]);
-            }
-            if (indiceHistorial == 0) {
+    private static void mostrarHistorial() {
+        System.out.println("\n--- Historial de la conversación ---");
+        for (int i = 0; i < indiceHistorial; i++) {
+            System.out.println(historial[i]);
+        }
+        if (indiceHistorial == 0) {
             JOptionPane.showMessageDialog(null, "El historial está vacío.", "Historial de Conversación", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
@@ -239,6 +240,10 @@ public class ChatApp extends JFrame implements OllamaService.OlamaListener {
         historialTexto.append("</body></html>");
         JOptionPane.showMessageDialog(null, new JLabel(historialTexto.toString()), "Historial de Conversación", JOptionPane.INFORMATION_MESSAGE);
         
+    }
+    private void LimpiarChat(){
+        chatContentPanel.setText("");
+        currentChat = null;
     }
 
     
