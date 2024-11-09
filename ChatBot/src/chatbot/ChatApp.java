@@ -51,7 +51,7 @@ public class ChatApp extends JFrame implements OllamaService.OlamaListener {
         newChatButton.setMinimumSize(new Dimension(SIDEBAR_WIDTH, 40));
         newChatButton.setMaximumSize(new Dimension(SIDEBAR_WIDTH, 40));
         newChatButton.setAlignmentX(Component.LEFT_ALIGNMENT);
-        historyButton.addActionListener(e -> LimpiarChat());
+        newChatButton.addActionListener(e -> LimpiarChat());
 
         sidebar.add(newChatButton);
         sidebar.add(new JSeparator());
@@ -242,8 +242,9 @@ public class ChatApp extends JFrame implements OllamaService.OlamaListener {
         
     }
     private void LimpiarChat(){
-        chatContentPanel.setText("");
+        chatContentPanel.removeAll();
         currentChat = null;
+        JOptionPane.showMessageDialog(null, "Nuevo chat creado", "Información", JOptionPane.INFORMATION_MESSAGE);
     }
 
     
